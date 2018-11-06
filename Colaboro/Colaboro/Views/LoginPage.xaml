@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Colaboro.Views.LoginPage"
-             xmlns:colab="clr-namespace:Colaboro.ColabControls"             
+                     
              Padding="0"
              BackgroundColor="#3b4455"
              >
@@ -10,7 +10,7 @@
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never" >
             <StackLayout Spacing="10">
-                <!--
+                <!--   xmlns:colab="clr-namespace:Colaboro.ColabControls"  
                 <colab:GradientFrame  VerticalOptions="FillAndExpand"
                         HorizontalOptions="FillAndExpand"
                         OuterBackgroundColor="Transparent"
@@ -30,10 +30,10 @@
                 <Image Source="jubarteLogo.png" WidthRequest="110" Margin="0,40,0,5"></Image>
                 <StackLayout Spacing="10" Margin="16" >
 
-                    <colab:CustomEntry x:Name="usernameEntry" Text=""  
+                    <Entry x:Name="usernameEntry" Text=""  
                        Placeholder="Usuario" HeightRequest="40" />
 
-                    <colab:CustomEntry x:Name="passwordEntry" Text="" 
+                    <Entry x:Name="passwordEntry" Text="" 
                        Placeholder="Senha"
                        IsPassword="True" HeightRequest="40" />
 

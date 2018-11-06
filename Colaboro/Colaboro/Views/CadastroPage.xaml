@@ -16,7 +16,13 @@
                 <Entry x:Name="nomeEntry" Text="" Placeholder="Nome" HeightRequest="40" />
                 <Entry x:Name="cpfEntry" Text="" Placeholder="CPF" HeightRequest="40" />
                 <Entry x:Name="nascimentoEntry" Text="" Placeholder="Data Nascimento" HeightRequest="40" />
-                <Entry x:Name="sexoEntry" Text="" Placeholder="Data Nascimento" HeightRequest="40" />
+               
+                <Picker x:Name="sexoPicker" HorizontalOptions="FillAndExpand">
+                    <Picker.Items>
+                        <x:String>Masculino</x:String>
+                        <x:String>Feminino</x:String>
+                    </Picker.Items>
+                </Picker>
 
                 <Entry x:Name="emailEntry" Text="" Placeholder="E-mail" HeightRequest="40" />                
                 <Entry x:Name="passwordEntry"  Text="" Placeholder="Senha" IsPassword="True" HeightRequest="40" />

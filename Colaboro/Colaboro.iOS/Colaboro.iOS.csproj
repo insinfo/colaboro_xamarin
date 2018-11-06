@@ -15,6 +15,7 @@
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+	<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -90,7 +91,6 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CustomRenderer\CustomEntryRenderer.cs" />
     <Compile Include="DependencyServices\IPAddressManager.cs" />
     <Compile Include="DependencyServices\Reachability.cs" />
     <Compile Include="Main.cs" />
@@ -186,5 +186,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\iconeReturn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomRenderer\" />
   </ItemGroup>
 </Project>

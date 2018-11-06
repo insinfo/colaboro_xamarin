@@ -19,7 +19,7 @@ namespace Colaboro.Services
 
         public async void AtenticarUsuario(Page context,string userName, string password)
         {
-            var objDialog = UserDialogs.Instance.Loading("Carregando...", null, null, false);
+           /* var objDialog = UserDialogs.Instance.Loading("Carregando...", null, null, false);
             objDialog.Show();
 
             var loginData = new LoginData()
