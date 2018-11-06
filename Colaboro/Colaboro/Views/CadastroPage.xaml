@@ -15,7 +15,9 @@
                 
                 <Entry x:Name="nomeEntry" Text="" Placeholder="Nome" HeightRequest="40" />
                 <Entry x:Name="cpfEntry" Text="" Placeholder="CPF" HeightRequest="40" />
-                
+                <Entry x:Name="nascimentoEntry" Text="" Placeholder="Data Nascimento" HeightRequest="40" />
+                <Entry x:Name="sexoEntry" Text="" Placeholder="Data Nascimento" HeightRequest="40" />
+
                 <Entry x:Name="emailEntry" Text="" Placeholder="E-mail" HeightRequest="40" />                
                 <Entry x:Name="passwordEntry"  Text="" Placeholder="Senha" IsPassword="True" HeightRequest="40" />
                 <Entry x:Name="rpeatPasswordEntry" Text="" Placeholder="E-mail" HeightRequest="40" />

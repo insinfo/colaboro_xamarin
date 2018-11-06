@@ -63,9 +63,7 @@ namespace Colaboro.Views
             // dialog.HideLoading();
             //dialog.Alert(resp);*/
 
-            App.Database.SetItem("token", "teste");
-
-           
+                     
 
             //
         }

@@ -37,7 +37,7 @@ namespace Colaboro
                 {
                     var fileName = "ColabSQLite.db3";
                     var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), fileName);
-                    Debug.WriteLine(path);
+                   
                     database = new ColaboroDatabase(path);
                 }
                 return database;

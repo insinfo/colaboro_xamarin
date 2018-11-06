@@ -18,15 +18,16 @@ namespace Colaboro.Data
         public ColaboroDatabase(string dbPath)
         {
             // asyncConnection = new SQLiteAsyncConnection(dbPath);
-            // database.CreateTableAsync<Usuario>().Wait();
+            // asyncConnection.CreateTableAsync<Usuario>().Wait();
             connection = new SQLiteConnection(dbPath);
             connection.CreateTable<KeyValuePair>();
         }
 
         public void SetItem(string chave, string valor)
         {
-            connection.Query<KeyValuePair>("insert or replace into "KeyValuePair" ("Key","Value") 
-VALUES((select "Key" from "KeyValuePair" where "Key" = 'token'), 'testsdf') ");
+            var query = @"insert or replace into [KeyValuePair] ([Key],[Value]) 
+            VALUES((select [Key] from [KeyValuePair] where [Key] = '"+ chave+"'), '"+valor+"') ";
+            connection.Query<KeyValuePair>(query);
         }
 
         public string GetItem(string chave)
