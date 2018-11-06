@@ -1,4 +1,4 @@
-# Colaboro
+# Colaboro é o App da Jubarte
 
 
 para trocar a "origin" de um repositorio GIT use os comandos abaixo
