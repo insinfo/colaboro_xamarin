@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Colaboro.Views.ServicoPage"
+             Padding="0,0,0,0"
+             BackgroundColor="{StaticResource PageBackgroundColor}"
+             Title="Serviços"
+             >
+    <ContentPage.Content>
+
+        <ListView x:Name="listViewServicos" Margin="20" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <StackLayout BackgroundColor="{Binding cor}" MinimumHeightRequest="300" Padding="0" Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
+                            <Image Source="{Binding icone}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100" Margin="0" Aspect="AspectFill"/>
+                            <Label Text="{Binding nome}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                        </StackLayout>                       
+                                                
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate> 
+        </ListView>  
+        
+
+    </ContentPage.Content>
+</ContentPage>
