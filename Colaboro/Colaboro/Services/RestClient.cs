@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Colaboro.Services
     public class RestClient
     {
         public string Method { get; set; } = "POST";
-        public string WebserviceURL { get; set; } = "https://jubarte.riodasostras.rj.gov.br";
+        public string WebserviceURL { get; set; } = "";
         public string DataTypeFormat { get; set; } = "json";
         public object DataToSender { get; set; } = null;
         public string SenderDataFormat { get; set; } = "application/json";
@@ -28,6 +29,12 @@ namespace Colaboro.Services
         {
             this.client = new HttpClient();
             this.client.DefaultRequestHeaders.Add("User-Agent", "appjubarte");//RuntimeInformation.OSDescription
+            if (AppSettings.AuthInfo != null)
+            {
+                var token = "Bearer "+ AppSettings.AuthInfo.accessToken;
+                //this.client.DefaultRequestHeaders.Authorization = AuthenticationHeaderValue.Parse(token);
+                this.client.DefaultRequestHeaders.Add("Authorization", token);
+            }
         }
 
         public void SetMethodGET()
@@ -142,7 +149,8 @@ namespace Colaboro.Services
             }
             catch (Exception ex)//OperationCanceledException
             {
-                return ex.Message;
+                Debug.WriteLine(ex.Message);
+                return null;
             }
         }
 

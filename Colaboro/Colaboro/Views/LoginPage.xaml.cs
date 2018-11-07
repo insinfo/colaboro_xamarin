@@ -40,32 +40,7 @@ namespace Colaboro.Views
                 return;
             }
 
-
-            //await this.Navigation.PushModalAsync(new MainPage());
-
-            //var dialog = UserDialogs.Instance;//.Loading("Carregando...",null,null,false);
-            //dialog.ShowLoading();                     
-
-            /*  RestClient rest = new RestClient();
-              rest.DataToSender = new { userName = usernameEntry.Text, password = passwordEntry.Text };
-              rest.SetMethodPOST();
-              rest.ErrorCallbackFunction = (res) => {
-                  // Utils.ShowAlert(this, res);
-                  usernameEntry.Text = res;
-                  Debug.WriteLine(res);
-              };
-              rest.SuccessCallbackFunction = (res) => {
-                  usernameEntry.Text = res;
-                  Debug.WriteLine(res);
-                  /// Navigation.PushModalAsync(new MainPage());
-              };           
-              await rest.Exec("/api/auth/login");
-            // dialog.HideLoading();
-            //dialog.Alert(resp);*/
-
-                     
-
-            //
+           await AuthService.AtenticarUsuario(this, usernameEntry.Text, passwordEntry.Text);
         }
         /*
         protected override bool OnBackButtonPressed()

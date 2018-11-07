@@ -1,53 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Colaboro.Views.LoginPage"
-                     
+             x:Class="Colaboro.Views.LoginPage"                     
              Padding="0"
-             BackgroundColor="#3b4455"
+             BackgroundColor="{StaticResource PageBackgroundColor}"
              >
 
     <ContentPage.Content>
-        <ScrollView VerticalScrollBarVisibility="Never" >
-            <StackLayout Spacing="10">
-                <!--   xmlns:colab="clr-namespace:Colaboro.ColabControls"  
-                <colab:GradientFrame  VerticalOptions="FillAndExpand"
-                        HorizontalOptions="FillAndExpand"
-                        OuterBackgroundColor="Transparent"
-                        InnerBackgroundColorStart="DarkBlue"
-                        InnerBackgroundColorEnd="LightBlue"
-                        BorderColor="Black"
-                        BorderWidth="2"
-                        BorderRadius="25" 
-                        FillOrientation="Vertical">
-                    <StackLayout Orientation="Vertical">
-                        <Label Text="Sample Text 1" />
-                        <Label Text="Sample Text 2" />
-                    </StackLayout>
-                </colab:GradientFrame >-->
-
+        <ScrollView VerticalScrollBarVisibility="Never" 
+                    BackgroundColor="{StaticResource PageBackgroundColor}">
+            <StackLayout Spacing="10" 
+                         BackgroundColor="{StaticResource PageBackgroundColor}">
+               
                 <!-- left, top, right, bottom -->
-                <Image Source="jubarteLogo.png" WidthRequest="110" Margin="0,40,0,5"></Image>
-                <StackLayout Spacing="10" Margin="16" >
+                <Image Source="jubarteLogo.png" 
+                       WidthRequest="110" Margin="0,40,0,5"></Image>
+                <StackLayout Spacing="10" Margin="16"
+                             BackgroundColor="{StaticResource PageBackgroundColor}" >
 
-                    <Entry x:Name="usernameEntry" Text=""  
-                       Placeholder="Usuario" HeightRequest="40" />
+                    <Entry x:Name="usernameEntry" Text="teste@teste.com"  
+                       Placeholder="Usuario" 
+                           HeightRequest="40" />
 
-                    <Entry x:Name="passwordEntry" Text="" 
+                    <Entry x:Name="passwordEntry" Text="123456" 
                        Placeholder="Senha"
                        IsPassword="True" HeightRequest="40" />
 
-                    <Label x:Name="formValidationInfoLabel" Text="Usuario ou senha invalidos" 
-                       IsVisible="True" 
-                       TextColor="#ffffff" />
+                    <Label x:Name="formValidationInfoLabel" 
+                           Text="Usuario ou senha invalidos" 
+                       IsVisible="False" 
+                       TextColor="{StaticResource TextColor}" />
 
-                    <Button x:Name="btnEntrar" HeightRequest="40" Text="Entrar" BackgroundColor="#5fd0d0" TextColor="#ffffff" />
-                    <Button x:Name="btnCadastrar" HeightRequest="40" Text="Cadastrar" BackgroundColor="BlueViolet" TextColor="#ffffff"  />
+                    <Button x:Name="btnEntrar" HeightRequest="40" 
+                            Text="Entrar" 
+                            BackgroundColor="#5fd0d0" 
+                            TextColor="{StaticResource TextColor}" />
+                    <Button x:Name="btnCadastrar" 
+                            HeightRequest="40" Text="Cadastrar" 
+                            BackgroundColor="BlueViolet" 
+                            TextColor="{StaticResource TextColor}"  />
               
                 </StackLayout>
-                <Button x:Name="btnEsqueceuSenha"  Text="Esqueceu a senha?" BackgroundColor="Transparent" TextColor="#ffffff"  />
+                <Button x:Name="btnEsqueceuSenha" 
+                        Text="Esqueceu a senha?" 
+                        BackgroundColor="{StaticResource PageBackgroundColor}" 
+                        TextColor="{StaticResource TextColor}" BorderWidth="0"/>
 
-                <Image Source="prefeituraLogo.png" WidthRequest="120" Margin="10"></Image>
+                <Image Source="prefeituraLogo.png" 
+                       WidthRequest="120" 
+                       Margin="10"></Image>
             </StackLayout>
 
         </ScrollView>

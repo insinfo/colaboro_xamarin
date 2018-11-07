@@ -21,10 +21,16 @@
     <Compile Update="Views\CadastroPage.xaml.cs">
       <DependentUpon>CadastroPage.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ServicoPage.xaml.cs">
+      <DependentUpon>ServicoPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ServicoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Solicitacao.xaml">

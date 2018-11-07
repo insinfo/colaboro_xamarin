@@ -17,16 +17,24 @@ namespace Colaboro
         {
             InitializeComponent();
 
-           /* Resources = new ResourceDictionary();
-            Resources.Add("secundary", Color.FromHex("3b4455"));
-            Resources.Add("primary", Color.FromHex("FFFFFF"));*/
-            
+            /* Resources = new ResourceDictionary();
+             Resources.Add("secundary", Color.FromHex("3b4455"));
+             Resources.Add("primary", Color.FromHex("FFFFFF"));*/
+
             //PushModalAsync()
             /* var nav = new NavigationPage(new Views.LoginPage());
              nav.BarBackgroundColor = (Color)App.Current.Resources["secundary"];
              nav.BarTextColor = (Color)App.Current.Resources["primary"];
              MainPage = nav;*/
-            MainPage = new Views.LoginPage();
+            AppSettings.Load();
+            if(AppSettings.AuthInfo != null)
+            {
+                MainPage = new Views.MainPage();
+            }
+            else
+            {
+                MainPage = new Views.LoginPage();
+            }          
         }
 
         public static ColaboroDatabase Database

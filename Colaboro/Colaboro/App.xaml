@@ -4,5 +4,9 @@
              x:Class="Colaboro.App">
     <Application.Resources>
 
+        <Color x:Key="PageBackgroundColor">#3b4455</Color>
+        <Color x:Key="TextColor">#FFFFFF</Color>
+        <x:Double x:Key="FontSize">24</x:Double>
+
     </Application.Resources>
 </Application>

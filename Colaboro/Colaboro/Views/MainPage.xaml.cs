@@ -4,11 +4,12 @@ using Xamarin.Forms.Xaml;
 namespace Colaboro.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class MainPage : TabbedPage
     {
         public MainPage()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            this.Children.Add(new ServicoPage());
         }
         /*
        protected override void OnAppearing()

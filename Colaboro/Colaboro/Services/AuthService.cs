@@ -5,68 +5,46 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Web;
 using Xamarin.Forms;
 
 namespace Colaboro.Services
 {
     public class AuthService
-    {
-        private const string WebServiceBaseURL = "https://jubarte2.riodasostras.rj.gov.br";
-        private const string RotaLogin = "/api/auth/login";
+    {      
 
-        public async void AtenticarUsuario(Page context,string userName, string password)
+        public static async Task<bool> AtenticarUsuario(Page context,string user, string pass)
         {
-           /* var objDialog = UserDialogs.Instance.Loading("Carregando...", null, null, false);
-            objDialog.Show();
+            //await this.Navigation.PushModalAsync(new MainPage());
 
-            var loginData = new LoginData()
-            {
-                userName = userName,
-                password = password,
-                ipPrivado = DependencyService.Get<IIPAddressManager>().GetPrivateIPAddress(),
-                ipPublico = "177.130.8.90"
+            //var dialog = UserDialogs.Instance;//.Loading("Carregando...",null,null,false);
+            //dialog.ShowLoading();                     
+
+            RestClient rest = new RestClient();
+            rest.WebserviceURL = AppSettings.WebServiceBaseURL;
+            rest.DataToSender = new { userName = user, password = pass };
+            rest.SetMethodPOST();
+            rest.ErrorCallbackFunction = (res) => {
+                Debug.WriteLine(res);
+                Utils.ShowAlert(context, "Não foi possível autenticar");
             };
+            rest.SuccessCallbackFunction = (res) => {               
+                Debug.WriteLine(res);
+                AppSettings.AuthInfo = AuthData.GetFromJson(res);
+                AppSettings.Save();
+                context.Navigation.PushModalAsync(new MainPage());
+            };
+            await rest.Exec(AppSettings.RotaLogin);
+            // dialog.HideLoading();
+            //dialog.Alert(resp);*/
 
-            var jsonRequest = JsonConvert.SerializeObject(loginData);
-            var httpContent = new StringContent(jsonRequest, System.Text.Encoding.UTF8, "application/json");
-            var resp = string.Empty;
+            //
 
-            var client = new HttpClient();
-            client.BaseAddress = new Uri(WebServiceBaseURL);
-           
-            var result = await client.PostAsync(RotaLogin, httpContent);
-            objDialog.Hide();
-
-            if (result.IsSuccessStatusCode)
-            {
-                resp = await result.Content.ReadAsStringAsync();
-                await context.Navigation.PushModalAsync(new MainPage());
-            }
-            else
-            {
-                Utils.ShowAlert(context, "Erro ao entrar, verifique se você esta conectado a internet!");
-            }          
-
-            /* try
-             {
-                 /using (var objDialog = UserDialogs.Instance.Loading("Carregando..", null, null, true, MaskType.Black))
-                 {
-                     await using Acr.UserDialogs;
-                 }*
-
-                 / Device.BeginInvokeOnMainThread(() => UserDialogs.Instance.Loading("Carregando..", null, null, true, MaskType.Black));
-                  await Task.Run(async () => { await Task.Delay(3000); })
-
-                      .ContinueWith(result => Device.BeginInvokeOnMainThread(() => {
-                      UserDialogs.Instance.HideLoading();
-                  }               
-                  ));*
-
-
-
+            /*
 
                  const string KEY = "7Fsxc2A865V67"; // chave
 
@@ -76,7 +54,7 @@ namespace Colaboro.Services
                      .MustVerifySignature().WithAlgorithm(new HMACSHA256Algorithm())
                      .Decode(token);
 
-                 ShowAlert(json);
+                
              }
              catch (TokenExpiredException)
              {                
@@ -86,6 +64,8 @@ namespace Colaboro.Services
              {               
                  ShowAlert("Token has invalid signature");
              }*/
+
+            return true;
         }
 
         /*
