@@ -7,14 +7,14 @@
     <item name="windowNoTitle">true</item>
     <item name="android:windowFullscreen">true</item>
     <item name="windowActionBar">false</item>
-    
-    <!--A cor da barra de aplicativos-->
+     <!--
+    A cor da barra de aplicativos
     <item name="colorPrimary">@color/white</item>
-    <!--A cor da barra de status e barras de aplicativos contextuais-->
+    A cor da barra de status e barras de aplicativos contextuais
     <item name="colorPrimaryDark">@color/black</item>
-    <!--A cor dos controles de interface do usuário -->
+    A cor dos controles de interface do usuário 
     <item name="colorAccent">@color/colorAccent</item>
-    <!--A cor de fundo da tela 
+    A cor de fundo da tela 
    
     A cor do texto de interface do usuário na barra de aplicativos
     <item name="android:textColorPrimary">@color/white</item>
@@ -28,8 +28,7 @@
   </style>
 
  
-
-  <style name="MainTheme" parent="MainTheme.Base">
+ <style name="MainTheme" parent="MainTheme.Base">
   </style>
   <!-- Base theme applied no matter what API -->
   <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -39,12 +38,12 @@
     <item name="windowActionBar">false</item>
     <!-- Set theme colors from http://www.google.com/design/spec/style/color.html#color-color-palette -->
     <!-- colorPrimary is used for the default action bar background -->
-    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimary">#2196F3</item>
     <!-- colorPrimaryDark is used for the status bar -->
-    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorPrimaryDark">#1976D2</item>
     <!-- colorAccent is used as the default value for colorControlActivated
          which is used to tint widgets -->
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorAccent">#FF4081</item>
     <!-- You can also set colorControlNormal, colorControlActivated
          colorControlHighlight and colorSwitchThumbNormal. -->
     <item name="windowActionModeOverlay">true</item>
@@ -53,6 +52,7 @@
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-    <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorAccent">#FF4081</item>
   </style>
+
 </resources>

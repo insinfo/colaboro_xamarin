@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Colaboro.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class Solicitacao : ContentPage
+	public partial class PoliticaPage : ContentPage
 	{
-		public Solicitacao ()
+		public PoliticaPage ()
 		{
 			InitializeComponent ();
 		}

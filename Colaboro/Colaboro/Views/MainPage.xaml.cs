@@ -1,26 +1,42 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Colaboro.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : TabbedPage
+    public partial class MainPage : MasterDetailPage
     {
         public MainPage()
         {
             InitializeComponent();
-            this.Children.Add(new ServicoPage());
+            MasterPage.ListView.ItemSelected += ListView_ItemSelected;
         }
-        /*
-       protected override void OnAppearing()
-       {
-          if (!App.IsUserLoggedIn)
-           {
-               App.NavigationService.NavigateModalAsync(PageNames.LoginPage, false);
-           }
-           base.OnAppearing();
-        }*/
 
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as MainPageMenuItem;
+            if (item == null)
+            {
+                if(item.CallBack != null)
+                {
+                    item.CallBack();
+                }
+                return;
+            }
 
+            var page = (Page)Activator.CreateInstance(item.TargetType);
+            page.Title = item.Title;
+
+            Detail = new NavigationPage(page);
+            IsPresented = false;
+
+            MasterPage.ListView.SelectedItem = null;
+        }
     }
 }

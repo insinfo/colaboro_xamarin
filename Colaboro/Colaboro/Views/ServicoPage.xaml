@@ -8,14 +8,30 @@
              >
     <ContentPage.Content>
 
-        <ListView x:Name="listViewServicos" Margin="20" >
+        <ListView x:Name="listViewServicos" Margin="0" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
 
-                        <StackLayout BackgroundColor="{Binding cor}" MinimumHeightRequest="300" Padding="0" Margin="0,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
-                            <Image Source="{Binding icone}" HorizontalOptions="Start" HeightRequest="100" WidthRequest="100" Margin="0" Aspect="AspectFill"/>
-                            <Label Text="{Binding nome}" VerticalTextAlignment="Center" HorizontalOptions="EndAndExpand" TextColor="White"/>
+                        <StackLayout BackgroundColor="{Binding cor}"                                    
+                                     Padding="0" 
+                                     Margin="0,0,0,0"
+                                     Orientation="Horizontal" 
+                                     HorizontalOptions="FillAndExpand" >
+
+                            <Image Source="lamp.png" 
+                                   HorizontalOptions="Start" 
+                                   HeightRequest="130"
+                                   WidthRequest="130"
+                                   Margin="10" 
+                                   Aspect="AspectFill"/>
+                            
+                            <Label Text="{Binding nome}" 
+                                   VerticalTextAlignment="Center" 
+                                   HorizontalOptions="EndAndExpand" 
+                                   Margin="10" 
+                                   TextColor="White"/>
+                            
                         </StackLayout>                       
                                                 
                     </ViewCell>
