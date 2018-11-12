@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -23,16 +24,15 @@ namespace Colaboro.Views
             InitializeComponent();      
             
             MenuItems = new ObservableCollection<MainPageMenuItem>(new[]
-            {
-                    new MainPageMenuItem { Id = 0, Title = "Home",TargetType=typeof(MainPageDetail)},
-                    new MainPageMenuItem { Id = 1, Title = "Politicas",TargetType=typeof(PoliticaPage)},
-                    new MainPageMenuItem { Id = 2, Title = "Sobre",TargetType=typeof(SobrePage)},
-                    new MainPageMenuItem { Id = 3, Title = "Sair",CallBack = async () => {
-                        AppSettings.Clear();
-                        await Navigation.PushModalAsync(new LoginPage());
-                        return true;
-                    }
-        }
+            {               
+                new MainPageMenuItem { Id = 1, Title = "Politicas",TargetType=typeof(PoliticaPage)},
+                new MainPageMenuItem { Id = 2, Title = "Sobre",TargetType=typeof(SobrePage)},
+                new MainPageMenuItem { Id = 3, Title = "Sair",CallBack = async () => {
+                    AppSettings.Clear();                    
+                    await Navigation.PushModalAsync(new LoginPage());                   
+                    return true;
+                }
+            }
             });
 
             ListView = MenuItemsListView;

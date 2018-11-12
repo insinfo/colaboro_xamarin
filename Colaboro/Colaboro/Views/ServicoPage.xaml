@@ -8,10 +8,10 @@
              >
     <ContentPage.Content>
 
-        <ListView x:Name="listViewServicos" Margin="0" >
+        <ListView x:Name="listViewServicos" Margin="0" HasUnevenRows="True" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell Height="120">
 
                         <StackLayout BackgroundColor="{Binding cor}"                                    
                                      Padding="0" 
@@ -21,15 +21,16 @@
 
                             <Image Source="lamp.png" 
                                    HorizontalOptions="Start" 
-                                   HeightRequest="130"
-                                   WidthRequest="130"
+                                   HeightRequest="100"
+                                   WidthRequest="100"
                                    Margin="10" 
-                                   Aspect="AspectFill"/>
+                                   Aspect="Fill"/>
                             
                             <Label Text="{Binding nome}" 
-                                   VerticalTextAlignment="Center" 
+                                   VerticalTextAlignment="Start" 
                                    HorizontalOptions="EndAndExpand" 
                                    Margin="10" 
+                                   
                                    TextColor="White"/>
                             
                         </StackLayout>                       

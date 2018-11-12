@@ -12,9 +12,9 @@ namespace Colaboro.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
-    {
+    {      
         public LoginPage()
-        {
+        {            
             InitializeComponent();
             btnCadastrar.Clicked += BtnCadastrar_Clicked;
             btnEntrar.Clicked += BtnEntrar_Clicked;
@@ -42,12 +42,18 @@ namespace Colaboro.Views
 
            await AuthService.AtenticarUsuario(this, usernameEntry.Text, passwordEntry.Text);
         }
-        /*
+
         protected override bool OnBackButtonPressed()
         {
             return true;
         }
-        */
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+           
+        }
+
 
     }
 }

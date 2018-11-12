@@ -26,17 +26,18 @@ namespace Colaboro.Services
 
             RestClient rest = new RestClient();
             rest.WebserviceURL = AppSettings.WebServiceBaseURL;
-            rest.DataToSender = new { userName = user, password = pass };
+            rest.DataToSender = new { userName = user, password = pass };         
             rest.SetMethodPOST();
             rest.ErrorCallbackFunction = (res) => {
                 Debug.WriteLine(res);
-                Utils.ShowAlert(context, "Não foi possível autenticar");
+                Utils.ShowAlert(context, "Não foi possível autenticar, tente mais tarde.");
             };
             rest.SuccessCallbackFunction = (res) => {               
                 Debug.WriteLine(res);
                 AppSettings.AuthInfo = AuthData.GetFromJson(res);
                 AppSettings.Save();
                 context.Navigation.PushModalAsync(new MainPage());
+                
             };
             await rest.Exec(AppSettings.RotaLogin);
             // dialog.HideLoading();

@@ -1,4 +1,5 @@
-﻿using Colaboro.Services;
+﻿using Colaboro.Models;
+using Colaboro.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +16,25 @@ namespace Colaboro.Views
 	{
 		public ServicoPage ()
 		{
-			InitializeComponent ();
-		}
+			InitializeComponent();
+            listViewServicos.ItemSelected += ListViewServicos_ItemSelected;
+
+        }
+
+        private void ListViewServicos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as Servico;
+
+
+        }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            await ServicoService.GetAll(this, listViewServicos);
+            if (App.IsLogged())
+            {
+                await ServicoService.GetAll(this, listViewServicos);
+            }
         }
     }
 }
