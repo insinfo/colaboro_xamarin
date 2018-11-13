@@ -2,12 +2,88 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Colaboro.Views.ColaboracoesPage"
-             Title="Colaborações">
+             Title="Colaborações" 
+             BackgroundColor="#E8E8E8">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Colaborações"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <!-- root -->
+            <Grid Margin="10" BackgroundColor="#ffffff" ColumnSpacing="0">
+                <Grid.RowDefinitions>                                  
+                    <RowDefinition Height="180" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!-- linha vertival -->
+                <BoxView BackgroundColor="#2196F3" Grid.Column="0"></BoxView>
+                
+                <Grid Grid.Row="0" Grid.Column="1" Margin="0" 
+                      ColumnSpacing="0" Padding="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="35" />
+                    </Grid.RowDefinitions>
+                    <!-- titulo do serviço -->
+                    <Label BackgroundColor="#ffffff" 
+                           Text="Troca de lampada queimada" 
+                           Grid.Row="0" FontSize="18" TextColor="#646364"
+                           Margin="10,5,0,0"></Label>
+
+                    <Grid Grid.Row="1"  ColumnSpacing="0"
+                          BackgroundColor="White" 
+                          VerticalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackLayout Orientation="Vertical" Margin="10,0,0,0"
+                                     Grid.Column="0" 
+                                     BackgroundColor="White" Spacing="2">
+                            <!-- label data abertura -->
+                            <Label Text="Aberto em" TextColor="#CBCBCB" FontSize="12"></Label>
+                            <!-- data abertura -->
+                            <StackLayout Orientation="Horizontal" >
+                                <Label Text="&#xf073;" FontSize="13" Margin="0,4,0,0">
+                                    <Label.FontFamily>
+                                        <OnPlatform x:TypeArguments="x:String" 
+                                                    Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" 
+                                                    iOS="Font Awesome 5 Free"/>
+                                    </Label.FontFamily>
+                                </Label>
+                                <Label Text="13/11/2018" TextColor="#646364" FontSize="16"></Label>
+                            </StackLayout>
+                            <!-- label bairro -->
+                            <Label Text="Bairro" TextColor="#CBCBCB" FontSize="12" Margin="0"></Label>
+                            <Label Text="Jardim Chacara Marilea" TextColor="#646364" FontSize="12" Margin="0"></Label>
+
+                        </StackLayout>                        
+                        <Image Source="lampadaQueimada.png" 
+                               Grid.Column="1"></Image>
+                    </Grid>
+
+                    <StackLayout Grid.Row="2" Margin="0" Padding="0" 
+                                 Spacing="0" Orientation="Horizontal"
+                                 BackgroundColor="#F6F6F6">
+                        <!-- icone status -->
+                        <Label Text="&#xf058;" FontSize="13" Margin="10,10,0,0" TextColor="#2196F3">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String" 
+                                                    Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" 
+                                                    iOS="Font Awesome 5 Free"/>
+                            </Label.FontFamily>
+                        </Label>
+                        <!-- label status -->
+                        <Label Text="Concluido" TextColor="#646364" FontSize="14" 
+                               Margin="10,8,0,0"></Label>
+
+
+                    </StackLayout>
+                </Grid>                
+            </Grid>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
