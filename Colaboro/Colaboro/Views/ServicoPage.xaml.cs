@@ -14,18 +14,18 @@ namespace Colaboro.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ServicoPage : ContentPage
 	{
+        private ServicoDataStore storage;
 		public ServicoPage ()
 		{
 			InitializeComponent();
-            listViewServicos.ItemSelected += ListViewServicos_ItemSelected;
-
+            listViewServicos.ItemSelected += ListViewServicos_ItemSelectedAsync;
+            storage = new ServicoDataStore();
         }
 
-        private void ListViewServicos_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListViewServicos_ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as Servico;
-
-
+            await Navigation.PushModalAsync(new ColaborarPage());
         }
 
         protected override async void OnAppearing()
@@ -33,7 +33,14 @@ namespace Colaboro.Views
             base.OnAppearing();
             if (App.IsLogged())
             {
-                await ServicoService.GetAll(this, listViewServicos);
+                try
+                {
+                    listViewServicos.ItemsSource = await storage.GetItemsAsync();
+
+                }catch(Exception ex)
+                {
+                    Utils.ShowAlert(this, StatusMessage.ErroPadrao);
+                }
             }
         }
     }

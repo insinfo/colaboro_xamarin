@@ -13,27 +13,23 @@ namespace Colaboro.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ColaborarPage : ContentPage
 	{
-        SolicitacaoDataStore storage = null;
+        BairroDataStore storage = null;
 
         public ColaborarPage()
 		{
 			InitializeComponent ();
-            storage = new SolicitacaoDataStore();
-            //listViewSolicitacoes.ItemSelected += ListViewSolicitacoes_ItemSelected;
-        }
+            storage = new BairroDataStore(); 
+         }
 
-        /*private void ListViewSolicitacoes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-           
+         void OnTapped(object sender, EventArgs e)
+         {
+            Navigation.PopModalAsync();
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (App.IsLogged())
-            {
-                listViewSolicitacoes.ItemsSource = await storage.GetItemsAsync();
-            }
-        }*/
+            bairroPicker.ItemsSource = storage.GetItems();
+        }
     }
 }

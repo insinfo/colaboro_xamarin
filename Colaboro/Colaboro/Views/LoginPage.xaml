@@ -37,7 +37,7 @@
                             TextColor="{StaticResource TextColor}" />
                     <Button x:Name="btnCadastrar" 
                             HeightRequest="40" Text="Cadastrar" 
-                            BackgroundColor="BlueViolet" 
+                            BackgroundColor="#52c7f8" 
                             TextColor="{StaticResource TextColor}"  />
               
                 </StackLayout>

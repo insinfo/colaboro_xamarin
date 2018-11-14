@@ -91,6 +91,7 @@
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Renderers\CircleViewRenderer.cs" />
     <Compile Include="DependencyServices\IPAddressManager.cs" />
     <Compile Include="DependencyServices\Reachability.cs" />
     <Compile Include="Main.cs" />
@@ -190,7 +191,5 @@
   <ItemGroup>
     <BundleResource Include="Resources\iconeReturn.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CustomRenderer\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

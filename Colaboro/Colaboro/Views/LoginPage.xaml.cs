@@ -39,8 +39,8 @@ namespace Colaboro.Views
                 passwordEntry.Focus();
                 return;
             }
-
-           await AuthService.AtenticarUsuario(this, usernameEntry.Text, passwordEntry.Text);
+            var authService = new AuthService();
+           await authService.AtenticarUsuario(this, usernameEntry.Text, passwordEntry.Text);
         }
 
         protected override bool OnBackButtonPressed()

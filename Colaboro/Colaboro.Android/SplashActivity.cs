@@ -28,7 +28,7 @@ namespace Colaboro.Droid
             // Defining the RelativeLayout layout parameters with Fill_Parent
             RelativeLayout.LayoutParams relativeLayoutParams = 
             new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MatchParent, RelativeLayout.LayoutParams.MatchParent);
-            /*LottieAnimationView animationView = new LottieAnimationView(this);
+          /*  LottieAnimationView animationView = new LottieAnimationView(this);
             animationView.LayoutParameters = relativeLayoutParams;
             animationView.SetAnimation("spinner_into_confirmation.json");
             animationView.PlayAnimation();           

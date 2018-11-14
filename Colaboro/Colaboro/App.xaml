@@ -4,8 +4,11 @@
              x:Class="Colaboro.App">
     <Application.Resources>
 
+        <OnPlatform x:TypeArguments="Color" Android="#98A2B6" iOS="#000000"  x:Key="PlaceHoldColor" />
+      
         <Color x:Key="PageBackgroundColor">#3b4455</Color>
         <Color x:Key="TextColor">#FFFFFF</Color>
+        <Color x:Key="EntryTextColor">#FFFFFF</Color>
         <x:Double x:Key="FontSize">24</x:Double>
 
     </Application.Resources>

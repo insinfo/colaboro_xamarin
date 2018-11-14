@@ -4,9 +4,11 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Serialization;
+using Xamarin.Forms.Internals;
 
 namespace Colaboro.Models
-{   
+{
+    [Preserve(AllMembers = true)]
     public class Servico
     {
         public int id { get; set; }

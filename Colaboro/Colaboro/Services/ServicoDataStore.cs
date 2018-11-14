@@ -28,14 +28,13 @@ namespace Colaboro.Services
             items = new List<Servico>();
         }
 
-        public async Task<IEnumerable<Servico>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Servico>> GetItemsAsync(bool forceRefresh = true)
         {
             if (forceRefresh)
             {
                 var json = await client.GetStringAsync($"ciente/api/app/servicos");
                 items = await Task.Run(() => ServicoData.GetFromJson(json).data);
             }
-
             return items;
         }
 
@@ -64,7 +63,7 @@ namespace Colaboro.Services
 
         public async Task<bool> UpdateItemAsync(Servico item)
         {
-            if (item == null || item.id == null)
+            if (item == null)
                 return false;
 
             var serializedItem = JsonConvert.SerializeObject(item);

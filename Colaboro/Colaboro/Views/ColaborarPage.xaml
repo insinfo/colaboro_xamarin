@@ -1,35 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:Colaboro.Behavior"
+             xmlns:controls="clr-namespace:Colaboro.ColabControls"
              x:Class="Colaboro.Views.ColaborarPage"
-             Padding="0,0,0,0"
-             BackgroundColor="#3b4455"
-             Title="Colaborações"
+             Padding="0"
+             BackgroundColor="{StaticResource PageBackgroundColor}"
+             Title="Colabore"
              >
     <ContentPage.Content>
-        
-        
-                        <StackLayout BackgroundColor="Aqua"                                    
-                                     Padding="0" 
-                                     Margin="0,0,0,0"
-                                     Orientation="Horizontal" 
-                                     HorizontalOptions="FillAndExpand" >
 
-                            <Image Source="lamp.png" 
-                                   HorizontalOptions="Start" 
-                                   HeightRequest="100"
-                                   WidthRequest="100"
-                                   Margin="10" 
-                                   Aspect="Fill"/>
+        <ScrollView VerticalScrollBarVisibility="Never"   
+                    BackgroundColor="{StaticResource PageBackgroundColor}" Margin="0" Padding="0">
 
-                            <Label Text="teste" 
-                                   VerticalTextAlignment="Start" 
-                                   HorizontalOptions="EndAndExpand" 
-                                   Margin="10" 
-                                   TextColor="White"/>
+            <StackLayout Margin="0" Padding="0" Spacing="0">
+                
+                <StackLayout  BackgroundColor="#2196F3" HeightRequest="40">
+                    <Label TextColor="{StaticResource EntryTextColor}" 
+                           FontSize="18" 
+                           HorizontalTextAlignment="Center"                        
+                           Margin="0,8,0,0">Colaborar</Label>
+                </StackLayout>
+                    
+                <StackLayout Spacing="10" Padding="16"
+                         BackgroundColor="{StaticResource PageBackgroundColor}">
 
-                        </StackLayout>
+                    <Frame x:Name="btnTakePhoto" HeightRequest="40" WidthRequest="40" CornerRadius="20" 
+                           HorizontalOptions="Center"                            
+                           Margin="0" Padding="0"
+                           BackgroundColor="#5fd0d0">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapped"/>
+                        </Frame.GestureRecognizers>
+                        <Label  Text="&#xf030;" 
+                               FontSize="13"
+                               TextColor="#ffffff"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" 
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center" 
+                               >
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String" 
+                                                    Android="fa-solid-900.ttf#Font Awesome 5 Free Regular" 
+                                                    iOS="Font Awesome 5 Free"/>
+                            </Label.FontFamily>
+                        </Label>
+                    </Frame>
 
-        
+                    <Picker TextColor="{StaticResource EntryTextColor}"
+                        x:Name="bairroPicker" 
+                        HorizontalOptions="FillAndExpand" Title="Selecione o Bairro" >                       
+                    </Picker>
+
+                    <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="logradouroEntry" Text="" 
+                       Placeholder="Logradouro" 
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}"
+                       >                       
+                    </Entry>
+                   
+                    <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="numeroEntry" Text="" 
+                       Placeholder="Número" 
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}"
+                       Keyboard="Numeric">
+                    </Entry>
+
+                    <Editor  TextColor="{StaticResource EntryTextColor}"
+                       x:Name="decricaoEntry" Text="" 
+                       Placeholder="Descrição" 
+                       HeightRequest="90" PlaceholderColor="{StaticResource PlaceHoldColor}"
+                      >
+                    </Editor>
+
+                    <Button x:Name="btnColaborar"  Text="Colaborar" 
+                         BackgroundColor="#5fd0d0" 
+                         TextColor="{StaticResource TextColor}"   />
+
+                    <Button x:Name="btnCancelarColaboracao" Text="Cancelar" 
+                       BackgroundColor="{StaticResource PageBackgroundColor}" 
+                         BorderWidth="0" 
+                         TextColor="{StaticResource TextColor}"   />
+
+
+                </StackLayout>
+                
+            </StackLayout>
+
+        </ScrollView>
+
+
+
     </ContentPage.Content>
 </ContentPage>

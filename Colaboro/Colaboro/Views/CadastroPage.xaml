@@ -1,72 +1,90 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            x:Class="Colaboro.Views.CadastroPage"
+             x:Class="Colaboro.Views.CadastroPage"
+             xmlns:behavior="clr-namespace:Colaboro.Behavior"
              Padding="16"
-              BackgroundColor="{StaticResource PageBackgroundColor}"
+             BackgroundColor="{StaticResource PageBackgroundColor}"
+             Title="Cadastro"
              >
-    <!-- comentario -->
-
+    <!-- tela de cadastro -->
     <ContentPage.Content>
+        
         <ScrollView VerticalScrollBarVisibility="Never"   
                     BackgroundColor="{StaticResource PageBackgroundColor}">
+          
             <StackLayout Spacing="10"   
                          BackgroundColor="{StaticResource PageBackgroundColor}">
-                
-                <Label TextColor="White" 
+
+                <Label TextColor="{StaticResource EntryTextColor}" 
                        FontSize="30" 
                        HorizontalTextAlignment="Center" 
                        Margin="0,10,0,10">Cadastro</Label>
-                
-                <Entry x:Name="nomeEntry" Text=""
+
+                <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="nomeEntry" Text=""
                        Placeholder="Nome" 
-                       HeightRequest="40" />
-                <Entry x:Name="cpfEntry" Text="" 
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}">                    
+                </Entry>
+
+                <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="cpfEntry" Text="" 
                        Placeholder="CPF" 
-                       HeightRequest="40" />
-                <Entry x:Name="nascimentoEntry" 
-                       Text="" 
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}"
+                       Keyboard="Numeric">
+                    <Entry.Behaviors>
+                        <behavior:MaskedBehavior Mask="XXX.XXX.XXX-XX" />
+                    </Entry.Behaviors>
+                </Entry>
+                
+                <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="nascimentoEntry"  Text="" 
                        Placeholder="Data Nascimento" 
-                       HeightRequest="40" />
-               
-                <Picker x:Name="sexoPicker" SelectedIndex="0"
-                        HorizontalOptions="FillAndExpand">
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}">
+                    <Entry.Behaviors>
+                        <behavior:MaskedBehavior Mask="XX/XX/XXXX" />
+                    </Entry.Behaviors>
+                </Entry>
+
+                <Picker TextColor="{StaticResource EntryTextColor}"
+                        x:Name="sexoPicker" SelectedIndex="0"
+                        HorizontalOptions="FillAndExpand" Title="Sexo" >
                     <Picker.Items>
                         <x:String>Masculino</x:String>
                         <x:String>Feminino</x:String>
                     </Picker.Items>
                 </Picker>
 
-                <Entry x:Name="emailEntry" Text="" 
+                <Entry TextColor="{StaticResource EntryTextColor}"
+                        x:Name="emailEntry" Text="" 
                        Placeholder="E-mail" 
-                       HeightRequest="40" />         
-                
-                <Entry x:Name="passwordEntry"  Text="" 
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}"/>
+
+                <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="passwordEntry"  Text="" 
                        Placeholder="Senha" 
                        IsPassword="True" 
-                       HeightRequest="40" />
-                
-                <Entry x:Name="rpeatPasswordEntry" Text="" 
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}"/>
+
+                <Entry TextColor="{StaticResource EntryTextColor}"
+                       x:Name="rpeatPasswordEntry" Text="" 
                        Placeholder="Repita a Senha" 
                         IsPassword="True" 
-                       HeightRequest="40" />
+                       HeightRequest="40" PlaceholderColor="{StaticResource PlaceHoldColor}"/>
 
-                <Button  Text="Cadastrar" 
+                <Button x:Name="btnCadastrar"  Text="Cadastrar" 
                          BackgroundColor="BlueViolet" 
                          TextColor="{StaticResource TextColor}"   />
 
-                <Button  Text="Cancelar" 
+                <Button x:Name="btnCancelarCadastro" Text="Cancelar" 
                        BackgroundColor="{StaticResource PageBackgroundColor}" 
                          BorderWidth="0" 
                          TextColor="{StaticResource TextColor}"   />
 
 
-            </StackLayout>
-           
-      
+            </StackLayout>  
 
         </ScrollView>
-
 
     </ContentPage.Content>
 </ContentPage>

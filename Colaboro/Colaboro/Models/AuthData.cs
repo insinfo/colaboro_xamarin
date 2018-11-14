@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Internals;
 
 namespace Colaboro.Models
 {
+    [Preserve(AllMembers = true)]
     public class AuthData
     {
         public int expiresIn { get; set; }
@@ -16,6 +18,10 @@ namespace Colaboro.Models
         public int idPerfil { get; set; }
         public string imagemPessoa { get; set; }
         public string cpfPessoa { get; set; }
+
+        public AuthData()
+        {
+        }
 
         public static AuthData GetFromJson(string json)
         {

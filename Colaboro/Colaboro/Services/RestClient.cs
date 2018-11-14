@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using ModernHttpClient;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -27,7 +28,14 @@ namespace Colaboro.Services
 
         public RestClient()
         {
-            this.client = new HttpClient();
+            var messageHandler = new NativeMessageHandler()
+            {
+                Timeout = new TimeSpan(0, 0, 9),
+                EnableUntrustedCertificates = true,
+                DisableCaching = true
+            };
+
+            this.client = new HttpClient(messageHandler);
             this.client.DefaultRequestHeaders.Add("User-Agent", "appjubarte");//RuntimeInformation.OSDescription
             if (AppSettings.AuthInfo != null)
             {

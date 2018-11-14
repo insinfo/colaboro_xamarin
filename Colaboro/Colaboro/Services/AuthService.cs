@@ -15,31 +15,44 @@ using Xamarin.Forms;
 namespace Colaboro.Services
 {
     public class AuthService
-    {      
+    {
+        HttpClient client;
 
-        public static async Task<bool> AtenticarUsuario(Page context,string user, string pass)
+        public AuthService()
+        {
+            client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "appjubarte");
+        }
+
+        public async Task<bool> AtenticarUsuario(Page context,string user, string pass)
         {
             //await this.Navigation.PushModalAsync(new MainPage());
 
             //var dialog = UserDialogs.Instance;//.Loading("Carregando...",null,null,false);
-            //dialog.ShowLoading();                     
-
-            RestClient rest = new RestClient();
-            rest.WebserviceURL = AppSettings.WebServiceBaseURL;
-            rest.DataToSender = new { userName = user, password = pass };         
-            rest.SetMethodPOST();
-            rest.ErrorCallbackFunction = (res) => {
-                Debug.WriteLine(res);
-                Utils.ShowAlert(context, "Não foi possível autenticar, tente mais tarde.");
-            };
-            rest.SuccessCallbackFunction = (res) => {               
-                Debug.WriteLine(res);
-                AppSettings.AuthInfo = AuthData.GetFromJson(res);
+            //dialog.ShowLoading();                    
+                      
+            var dataToSender = new Usuario() { userName = user, password = pass };
+            var json = JsonConvert.SerializeObject(dataToSender);           
+            var content = new StringContent(json, Encoding.UTF8, "application/json");           
+            var uri = AppSettings.WebServiceBaseURL + AppSettings.RotaLogin;          
+            var result = await client.PostAsync(uri, content);
+            var resp = string.Empty;
+            if (result.IsSuccessStatusCode)
+            {
+                resp = await result.Content.ReadAsStringAsync();
+                AppSettings.AuthInfo = AuthData.GetFromJson(resp);
                 AppSettings.Save();
-                context.Navigation.PushModalAsync(new MainPage());
-                
-            };
-            await rest.Exec(AppSettings.RotaLogin);
+                await context.Navigation.PushModalAsync(new MainPage());               
+            }
+            else
+            {
+                resp = await result.Content.ReadAsStringAsync(); // result.StatusCode.ToString();
+                Utils.ShowAlert(context, StatusMessage.ErroAuthentication);
+            }
+
+            Debug.WriteLine("Response: "+resp);
+                           
+          
             // dialog.HideLoading();
             //dialog.Alert(resp);*/
 

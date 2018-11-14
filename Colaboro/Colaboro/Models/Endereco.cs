@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms.Internals;
 
 namespace Colaboro.Models
 {
+    [Preserve(AllMembers = true)]
     public class Endereco
     {
         public string tipoEndereco { get; set; }
