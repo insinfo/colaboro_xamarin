@@ -1,4 +1,4 @@
-# Colaboro é o App da Jubarte
+# Colaboro é o App test em Xamarin
 
 
 para trocar a "origin" de um repositorio GIT use os comandos abaixo
